@@ -17,8 +17,9 @@ Error: Process completed with exit code 1.
 ### the test_count_words_counts_each_word() execute the error, because the function gave 14 but what expected is 4, because the function count words change to count characters instead of words
 
 # 3a
-## Before checking, I predicted it would fail on GitHub
-## and pass on my laptop, because the line of httpx2 has been deleted from requirements.txt, and TestClient need it 
+## Before checking, I predicted it would fail on GitHub and pass on my laptop.
+## GitHub fails because httpx2 is no longer in requirements.txt, so the fresh computer never installs it, and TestClient needs it.
+## My laptop passes because httpx2 is still installed in my .venv from before, so deleting the line doesn't remove it.
 ## Result: my prediction was right.
 
 # 3b
@@ -52,10 +53,10 @@ You can install this with:
 Error: Process completed with exit code 2.
 
 ## My local computer already has httpx2 installed, but the fresh computer on github does not, when I delete the line of httpx2 in requirements.txt, the computer miss it when pip install, so fail as TestClient need httpx2
-## In a team, CI also helps because:
-## - nobody can manually to run the tests, because GitHub runs them automatically on every push
-## - if my change breaks someone's code, everyone sees the error before it is pulished into the main project
 
 
 # 6
-## CI is useful to run on every push instead of each person just running the tests on their laptop because we can test the program really works on a fresh laptop, not a old used laptop will full of packages
+## CI checks that the program really works on a fresh computer, not just on my laptop, which already has lots of packages installed.
+## In a team, CI also helps because:
+## - nobody can forget to run the tests, because GitHub runs them automatically on every push
+## - if my change breaks someone else's code, everyone sees the ❌ before it is merged into the main project
