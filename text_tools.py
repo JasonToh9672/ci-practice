@@ -3,7 +3,7 @@ def clean_question(text):
 
 
 def count_words(text):
-    return len(text.split())              # split into a list of words, then count them
+    return len(text)              # split into a list of words, then count them
 
 
 def check_question(text):
