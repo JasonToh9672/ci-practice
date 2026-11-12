@@ -16,4 +16,33 @@ Error: Process completed with exit code 1.
 
 ### the test_count_words_counts_each_word() execute the error, because the function gave 14 but what expected is 4, because the function count words change to count characters instead of words
 
-# 3
+# 3b
+Run python -m pytest -v
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.13.18/x64/bin/python
+cachedir: .pytest_cache
+rootdir: /home/runner/work/ci-practice/ci-practice
+plugins: anyio-4.16.0
+collecting ... collected 13 items / 1 error
+
+==================================== ERRORS ====================================
+________________________ ERROR collecting test_main.py _________________________
+test_main.py:2: in <module>
+    from fastapi.testclient import TestClient    # a "pretend browser" that sends requests to your app
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages/fastapi/testclient.py:1: in <module>
+    from starlette.testclient import TestClient as TestClient  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/opt/hostedtoolcache/Python/3.13.18/x64/lib/python3.13/site-packages/starlette/testclient.py:34: in <module>
+    raise RuntimeError(
+E   RuntimeError: The starlette.testclient module requires the httpx2 package to be installed.
+E   You can install this with:
+E       $ pip install httpx2
+=========================== short test summary info ============================
+ERROR test_main.py - RuntimeError: The starlette.testclient module requires the httpx2 package to be installed.
+You can install this with:
+    $ pip install httpx2
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.38s ===============================
+Error: Process completed with exit code 2.
+
