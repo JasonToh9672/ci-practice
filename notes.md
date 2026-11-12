@@ -16,6 +16,11 @@ Error: Process completed with exit code 1.
 
 ### the test_count_words_counts_each_word() execute the error, because the function gave 14 but what expected is 4, because the function count words change to count characters instead of words
 
+# 3a
+## Before checking, I predicted it would fail on GitHub
+## and pass on my laptop, because the line of httpx2 has been deleted from requirements.txt, and TestClient need it 
+## Result: my prediction was right.
+
 # 3b
 Run python -m pytest -v
 ============================= test session starts ==============================
@@ -47,6 +52,9 @@ You can install this with:
 Error: Process completed with exit code 2.
 
 ## My local computer already has httpx2 installed, but the fresh computer on github does not, when I delete the line of httpx2 in requirements.txt, the computer miss it when pip install, so fail as TestClient need httpx2
+## In a team, CI also helps because:
+## - nobody can manually to run the tests, because GitHub runs them automatically on every push
+## - if my change breaks someone's code, everyone sees the error before it is pulished into the main project
 
 
 # 6

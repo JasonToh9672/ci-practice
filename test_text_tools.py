@@ -53,7 +53,11 @@ def test_greeting(text, expected): # 2) The parameters in test function must mat
     assert is_greeting(text) == expected
 
 
-def test_starts_word():
-    assert starts_with_question_word("Hello") == False
-    assert starts_with_question_word("What") == True
-    assert starts_with_question_word("   HoW  ") == True
+
+@pytest.mark.parametrize("text, expected", [
+    ("Hello", False),
+    ("What", True),
+    ("   HoW  ", True)
+])
+def test_starts_word(text, expected):
+    assert starts_with_question_word(text) == expected
