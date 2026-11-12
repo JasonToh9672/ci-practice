@@ -1,0 +1,22 @@
+name: Tests                           # the name shown on GitHub
+
+on: push                              # WHEN to run: every time you push
+
+jobs:
+  test:                               # one job, called "test" (any name works)
+    runs-on: ubuntu-latest            # WHICH computer: a fresh Linux computer from GitHub
+
+    steps:                            # WHAT to do, in order, top to bottom
+      - name: Get the code
+        uses: actions/checkout@v7     # copy your repo's code onto that computer
+
+      - name: Install Python
+        uses: actions/setup-python@v7 # install Python on it
+        with:
+          python-version: "3.13"      # the same version as your laptop
+
+      - name: Install packages
+        run: python -m pip install -r requirements.txt   # install everything in requirements.txt
+
+      - name: Run tests
+        run: python -m pytest -v      # run your tests, exactly like you do on your laptop
