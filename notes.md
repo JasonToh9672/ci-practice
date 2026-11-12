@@ -46,3 +46,8 @@ You can install this with:
 =============================== 1 error in 0.38s ===============================
 Error: Process completed with exit code 2.
 
+## My local computer already has httpx2 installed, but the fresh computer on github does not, when I delete the line of httpx2 in requirements.txt, the computer miss it when pip install, so fail as TestClient need httpx2
+
+
+# 6
+## CI is useful to run on every push instead of each person just running the tests on their laptop because we can test the program really works on a fresh laptop, not a old used laptop will full of packages

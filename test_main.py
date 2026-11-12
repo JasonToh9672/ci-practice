@@ -1,4 +1,3 @@
-# cd Exercise before running python -m pytest, because we have same test file name inside Exercise folder and 17_testing folder
 from fastapi.testclient import TestClient    # a "pretend browser" that sends requests to your app
 
 from main import app                        # import the app object itself
@@ -25,18 +24,18 @@ def test_create_todo_empty_title_returns_422():
     response = client.post("/todos", json={"title": ""})    # breaks min_length=1
     assert response.status_code == 422                      # FastAPI/Pydantic rejects it automatically
 
-# 4
+
 def test_create_todo_long_title():
     response = client.post("/todos", json = {"title": "a" * 101})
     assert response.status_code == 422
 
-# 6(a)
+
 def test_delete_todo_missing_id():
     response = client.delete("/todos/999")
     assert response.status_code == 404
 
 
-# 6(b)
+
 def test_delete_works():
     response = client.post("/todos", json={"title": "What is RAG"})
     todo_id = response.json()["id"]
